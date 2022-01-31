@@ -36,6 +36,23 @@ New features in this ROS 2 release
 
 During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issues/830>`__ on GitHub contains an up-to-date state of the ongoing high-level tasks as well as references specific tickets with more details.
 
+Changes in Patch Release 7
+--------------------------
+
+Fix memory leaks and undefined behavior in rmw_fastrtps_dynamic_cpp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+API was changed in the following header files:
+
+- ``rmw_fastrtps_dynamic_cpp/TypeSupport.hpp``
+- ``rmw_fastrtps_dynamic_cpp/TypeSupport_impl.hpp``
+
+Though technically they are publically accessible, it is unlikely people are using them directly.
+Therefore, we decided to break API in order to fix memory leaks and undefined behavior.
+
+The fix was originally submitted in `rmw_fastrtps#429 <https://github.com/ros2/rmw_fastrtps/pull/429>`_ and later backported to Foxy in `rmw_fastrtps#577 <https://github.com/ros2/rmw_fastrtps/pull/577>`_.
+
+
 Changes in Patch Release 2
 --------------------------
 
